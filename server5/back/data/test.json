@@ -1,0 +1,1 @@
+{"nodes": [{"id": "검색 논문", "height": 2, "size": 32, "color": "rgb(244, 117, 96)"}, {"id": "추천 1", "height": 1, "size": 24, "color": "rgb(97, 205, 187)"}, {"id": "추천 1.1", "height": 0, "size": 12, "color": "rgb(232, 193, 160)"}], "links": [{"source": "검색 논문", "target": "추천 1", "distance": 80}, {"source": "추천 1", "target": "추천 1.1", "distance": 50}]}

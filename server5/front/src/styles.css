@@ -1,0 +1,12 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .responsive-network {
+    height: 700px;
+    width: auto;
+    align-content: center;
+    justify-content: center;
+  }
+  

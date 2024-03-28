@@ -1,0 +1,237 @@
+{
+    "nodes": [
+        {
+            "id": "검색 논문",
+            "height": 2,
+            "size": 32,
+            "color": "rgb(244, 117, 96)"
+        },
+        {
+            "id": "추천 1",
+            "height": 1,
+            "size": 24,
+            "color": "rgb(97, 205, 187)"
+        },
+        {
+            "id": "추천 2",
+            "height": 1,
+            "size": 24,
+            "color": "rgb(97, 205, 187)"
+        },
+        {
+            "id": "추천 3",
+            "height": 1,
+            "size": 24,
+            "color": "rgb(97, 205, 187)"
+        },
+        {
+            "id": "추천 4",
+            "height": 1,
+            "size": 24,
+            "color": "rgb(97, 205, 187)"
+        },
+        {
+            "id": "추천 5",
+            "height": 1,
+            "size": 24,
+            "color": "rgb(97, 205, 187)"
+        },
+        {
+            "id": "추천 1.0",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 1.1",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 1.2",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 2.0",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 2.1",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 2.2",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 3.0",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 3.1",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 3.2",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 4.0",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 4.1",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 4.2",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 5.0",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 5.1",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        },
+        {
+            "id": "추천 5.2",
+            "height": 0,
+            "size": 12,
+            "color": "rgb(232, 193, 160)"
+        }
+    ],
+    "links": [
+        {
+            "source": "검색 논문",
+            "target": "추천 1",
+            "distance": 100
+        },
+        {
+            "source": "추천 1",
+            "target": "추천 4",
+            "distance": 100
+        },
+        {
+            "source": "추천 1",
+            "target": "추천 1.0",
+            "distance": 50
+        },
+        {
+            "source": "추천 1",
+            "target": "추천 1.1",
+            "distance": 50
+        },
+        {
+            "source": "추천 1",
+            "target": "추천 1.2",
+            "distance": 50
+        },
+        {
+            "source": "검색 논문",
+            "target": "추천 2",
+            "distance": 100
+        },
+        {
+            "source": "추천 2",
+            "target": "추천 2.0",
+            "distance": 50
+        },
+        {
+            "source": "추천 2",
+            "target": "추천 2.1",
+            "distance": 50
+        },
+        {
+            "source": "추천 2",
+            "target": "추천 2.2",
+            "distance": 50
+        },
+        {
+            "source": "검색 논문",
+            "target": "추천 3",
+            "distance": 100
+        },
+        {
+            "source": "추천 3",
+            "target": "추천 3.0",
+            "distance": 50
+        },
+        {
+            "source": "추천 3",
+            "target": "추천 3.1",
+            "distance": 50
+        },
+        {
+            "source": "추천 3",
+            "target": "추천 3.2",
+            "distance": 50
+        },
+        {
+            "source": "검색 논문",
+            "target": "추천 4",
+            "distance": 80
+        },
+        {
+            "source": "추천 4",
+            "target": "추천 4.0",
+            "distance": 50
+        },
+        {
+            "source": "추천 4",
+            "target": "추천 4.1",
+            "distance": 50
+        },
+        {
+            "source": "추천 4",
+            "target": "추천 4.2",
+            "distance": 50
+        },
+        {
+            "source": "검색 논문",
+            "target": "추천 5",
+            "distance": 100
+        },
+        {
+            "source": "추천 5",
+            "target": "추천 5.0",
+            "distance": 50
+        },
+        {
+            "source": "추천 5",
+            "target": "추천 5.1",
+            "distance": 50
+        },
+        {
+            "source": "추천 5",
+            "target": "추천 5.2",
+            "distance": 50
+        }
+    ]
+}
