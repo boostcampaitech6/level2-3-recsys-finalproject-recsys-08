@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import './UploadForm.css';
 import '../App.css';
@@ -7,26 +7,6 @@ import { useAuth } from '../components/AuthContext';
 import { MyResponsiveNetwork } from '../components/MyResponsiveNetwork';
 
 const DefaultStyle = () => {
-  // const accessToken = JSON.parse(localStorage.getItem('accessToken'));
-  // const [roomData, setRoomData] = useState(null); // 데이터를 담는 상태
-
-  // useEffect(() => {
-  //   const fetchRoomData = async () => {
-  //     try {
-  //       const response = await axios.get(`http://223.130.141.170:8000/chat/room`, {
-  //         headers: {
-  //           Authorization: `Bearer ${accessToken.access_token}`
-  //         }
-  //       });
-  //       setRoomData(response.data); // 데이터 설정
-  //     } catch (error) {
-  //       console.error('Error fetching room data:', error);
-  //     }
-  //   };
-
-  //   fetchRoomData(); // 데이터 가져오기
-  // }, []); // 컴포넌트가 마운트될 때만 실행
-
   return (
     <div
       style={{
@@ -57,23 +37,61 @@ const UploadForm = () => {
         }
       });
 
-      // 데이터 중에서 처음 다섯 개의 노드만 사용합니다.
-      const firstFiveNodes = response.data.slice(0, 5);
+      setData(response.data.matched_papers);
 
-      setData(response.data);
+      function nodeExists(id, nodesArray) {
+        return nodesArray.some(node => node.id === id);
+      }
 
-      const maxCitationCount = Math.max(...firstFiveNodes.map(item => item.citation_count));
+      const baseNodes = response.data.matched_papers;
+      const maxCitationCount = Math.max(...baseNodes.map(item => item.citation_count));
 
-      const nodes = firstFiveNodes.map(item => ({
+      const nodes1 = baseNodes.map(item => ({
         id: item.id,
         title: item.title,
         author: item.author1,
         year: item.published_year,
         height: 2,
-        size: Math.max(0.3, (item.citation_count / maxCitationCount)) * 80, // 비율로 설정
-        color: `rgb(1, 96, 176, ${Math.max(0, (item.published_year - 1920) / (2024 - 1920)) * 0.7})`
+        size: Math.max(0.3, (item.citation_count / maxCitationCount)) * 80,
+        color: `rgb(11, 96, 176, ${Math.max(0, (item.published_year - 1920) / (2024 - 1920)) * 0.7})`
       }));
-      const links = [];// [{source: nodes[0].id, target: nodes[1].id, distance: 100}];
+
+      const childNodes = response.data.targets_list;
+      const nodes2 = childNodes.map(item => ({
+        id: item.id,
+        title: item.title,
+        author: item.author1,
+        year: item.published_year,
+        height: 1,
+        size: Math.max(0.3, (item.citation_count / maxCitationCount)) * 40,
+        color: `rgb(150,75,0, ${Math.max(0, (item.published_year - 1920) / (2024 - 1920)) * 0.7})`
+      }));
+
+      const nodes = [...nodes1];
+      
+      nodes2.forEach(node => {
+        if (!nodes.some(existingNode => existingNode.id === node.id)) {
+          nodes.push(node);
+        }
+      });
+
+      const links = [];
+      if (response.data.top_5_results) {
+        for (const key in response.data.top_5_results) {
+          if (response.data.top_5_results.hasOwnProperty(key)) {
+            response.data.top_5_results[key].forEach(item => {
+              if (nodeExists(item.source, nodes) && nodeExists(item.target, nodes)) {
+                links.push({
+                  source: item.source,
+                  target: item.target,
+                  distance: item.distance
+                });
+              }
+            });
+          }
+        }
+      }
+
       const newAnnotations = [];
       for (let i = 0; i < nodes.length; i++) {
         newAnnotations[i] = {
@@ -88,6 +106,7 @@ const UploadForm = () => {
           noteTextOffset: 5
         };
       }
+
       setGraph({ nodes, links });
       setAnnotations(newAnnotations);
       setShowPaperList(true);

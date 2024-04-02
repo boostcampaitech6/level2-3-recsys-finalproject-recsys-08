@@ -14,12 +14,12 @@ export function MyResponsiveNetwork(props) {
       linkDistance={function (e) {
         return e.distance + 100;
       }}
-      distanceMin={4}
+      distanceMin={10}
       nodeTooltip={(e) => {
         return <a>{e.node.data.title}</a>
       }}
       centeringStrength={0.7}
-      repulsivity={80}
+      repulsivity={15}
       nodeSize={function (n) {
         return n.size * 2;
       }}
