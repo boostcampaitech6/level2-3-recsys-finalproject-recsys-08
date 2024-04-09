@@ -14,7 +14,7 @@ export function MyResponsiveNetwork(props) {
       linkDistance={function (e) {
         return e.distance + 100;
       }}
-      distanceMin={10}
+      distanceMin={8}
       nodeTooltip={(e) => {
         return <a>{e.node.data.title}</a>
       }}
@@ -26,7 +26,9 @@ export function MyResponsiveNetwork(props) {
       activeNodeSize={function (n) {
         return 2.5 * n.size;
       }}
-      inactiveNodeSize={30}
+      inactiveNodeSize={function (n) {
+        return n.size;
+      }}
       nodeColor={function (e) {
         return e.color;
       }}

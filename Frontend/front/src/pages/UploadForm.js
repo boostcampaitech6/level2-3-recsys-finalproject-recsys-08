@@ -84,7 +84,7 @@ const UploadForm = () => {
                 links.push({
                   source: item.source,
                   target: item.target,
-                  distance: item.distance
+                  distance: (1 - item.distance) * 4
                 });
               }
             });
@@ -136,7 +136,7 @@ const UploadForm = () => {
       </div>
       <div className='response-container'>
         {showPaperList && <PaperList papers={data} />}
-        <div className="responsive-network" style={{ position: "absolute", left: "50%", right: "3%", top: "180px", height: "70vh" }}>
+        <div className="responsive-network" style={{ position: "absolute", left: "50%", right: "3%", top: "180px", height: "80vh" }}>
           {showPaperList && <MyResponsiveNetwork data={graph} annotations={annotations} />}
         </div>
       </div>
